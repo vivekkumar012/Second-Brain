@@ -12,4 +12,4 @@ userRouter.delete("/content", deleteContent);
 userRouter.post("/brain/share", linkShare);
 userRouter.get("brain/:shareLink", linkShareId);
 
-export default userRouter;
+export default userRouter; 
