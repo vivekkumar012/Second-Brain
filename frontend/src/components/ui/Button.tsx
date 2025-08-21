@@ -1,11 +1,7 @@
 
 interface ButtonProps {
-    variant: "primary" | "secondary";
     size: "sm" | "md" | "lg";
-    text: string;
-    startIcon?: any;
-    endIcon?: any;
-    onClick: () => void;
+    title: string;
 }
 
 const variantStyles = {
@@ -14,13 +10,13 @@ const variantStyles = {
 }
 
 const sizeStyle = {
-    "sm": "p-2",
-    "md": "p-4",
-    "lg": "p-6"
+    "sm": "px-2 py-1",
+    "md": "px-4 py-2",
+    "lg": "px-8 py-4"
 }
 
 const defaultStyle = "rounded-md"
 
 export const Button = (props: ButtonProps) => {
-    return <button className={`${variantStyles[props.variant]} ${defaultStyle} ${sizeStyle[props.size]}`}>{props.text}</button>
+    return <button className={sizeStyle[props.size] + " bg-blue-800  cursor-pointer"}>{props.title}</button>
 }
