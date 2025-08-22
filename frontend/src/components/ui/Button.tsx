@@ -15,7 +15,7 @@ const sizeStyle = {
     "lg": "px-8 py-4"
 }
 
-const defaultStyle = "rounded-md"
+const defaultStyle = "rounded-lg"
 
 export const Button = (props: ButtonProps) => {
     return <button className={sizeStyle[props.size] + " bg-blue-800  cursor-pointer"}>{props.title}</button>
