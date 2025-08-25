@@ -7,6 +7,7 @@ function App() {
     <div>
       <Button size='sm' title='share' />
       <Button size='lg' title='Add a content' />
+      <Button size='md' title='Add a content' />
     </div>
   )
 }
