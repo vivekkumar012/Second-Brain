@@ -1,4 +1,4 @@
-import { contentModel, userModel } from "../models/db.js";
+import { contentModel, linkModel, userModel } from "../models/db.js";
 
 export const createContent = async (req: any, res: any) => {
     try {
@@ -73,7 +73,12 @@ export const deleteContent = async (req: any, res: any) => {
 }
 
 export const linkShare = async (req: any, res: any) => {
-
+    const { share } = req.body;
+    if(share) {
+        linkModel.create({
+            userId: req.userId
+        })
+    }
 }
 
 export const linkShareId = async (req: any, res: any) => {
