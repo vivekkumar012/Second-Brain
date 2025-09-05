@@ -4,8 +4,8 @@ import { random } from "./utils.js";
 export const createContent = async (req: any, res: any) => {
     try {
         const userId = req.userId;
-        const { title, link, tags} = req.body;
-        if(!title || !link || !tags) {
+        const { title, link} = req.body;
+        if(!title || !link) {
             return res.status(400).json({
                 message: "All fields are required to create a content",
                 success: false
@@ -76,19 +76,32 @@ export const deleteContent = async (req: any, res: any) => {
 export const linkShare = async (req: any, res: any) => {
     const { share } = req.body;
     if(share) {
+        const existingLink = await linkModel.findOne({
+            userId: req.userId
+        })
+        if(existingLink) {
+            return res.json({
+                hash: existingLink.hash
+            })
+        }
+        const hash = random(10);
         await linkModel.create({
             userId: req.userId,
-            hash: random(10)
+            hash: hash
+        })
+
+        res.status(200).json({
+          message: "/share"+ hash
         })
     } else {
         await linkModel.deleteOne({
             userId: req.userId
         })
-    }
 
-    res.status(200).json({
-        message: "Updated sharable link"
-    })
+        res.json({
+          message: "Removed link"
+        })
+    }
 }
 
 export const linkShareId = async (req: any, res: any) => {
