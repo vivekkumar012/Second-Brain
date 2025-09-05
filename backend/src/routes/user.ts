@@ -11,6 +11,6 @@ userRouter.post("/content", userMiddleware, createContent);
 userRouter.get("/content", userMiddleware, getContent);
 userRouter.delete("/content", userMiddleware, deleteContent);
 userRouter.post("/brain/share", userMiddleware, linkShare);
-userRouter.get("brain/:shareLink", linkShareId);
+userRouter.get("/brain/:shareLink", linkShareId);
 
 export default userRouter; 
