@@ -4,10 +4,6 @@ interface ButtonProps {
     title: string;
 }
 
-const variantStyles = {
-    "primary": "bg-purple-600 text-white",
-    "secondary": "bg-purple-300 text-purple-600"
-}
 
 const sizeStyle = {
     "sm": "px-2 py-1",
