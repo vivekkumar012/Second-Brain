@@ -1,15 +1,13 @@
 import './App.css'
-import { Button } from './components/ui/Button'
+import { Button } from './components/Button'
+import { PlusIcon } from './icons/PlusIcon'
+import { ShareIcon } from './icons/ShareIcon'
 
 function App() {
-
-  return (
-    <div>
-      <Button size='sm' title='share' />
-      <Button size='lg' title='Add a content' />
-      <Button size='md' title='Add a content' />
-    </div>
-  )
+  return <div>
+    <Button variant='primary' text='Add Content' startIcon={<PlusIcon />}/>
+    <Button variant='secondary' text='Share Brain' startIcon={<ShareIcon />}/>
+  </div>
 }
 
 export default App
